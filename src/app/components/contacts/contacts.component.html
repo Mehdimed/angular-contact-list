@@ -1,6 +1,6 @@
 <div class="container">
     <h3>liste des contacts</h3>
-    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList class="drag-and-drop-container" (cdkDropListDropped)="drop($event)">
         <div *ngFor="let contact of contacts" class="contact" (click)="showContact(contact)" cdkDrag>{{ contact.name }}</div>
     </div>
 </div>
