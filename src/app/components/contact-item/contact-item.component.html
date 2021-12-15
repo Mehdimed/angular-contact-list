@@ -1,0 +1,6 @@
+<div class="container">
+    <div class="pseudo">{{ contact.pseudo }}</div>
+    <input (keyup)="onEventChange($event , contact)" type="text" id="contact-name" class="name" value="{{ contact.name }}">
+    <div class="email">{{ contact.email }}</div>
+    <button *ngIf="contact.email" class="delete-button" (click)="onDelete(contact)">Supprimer {{contact.pseudo}} </button>
+</div>

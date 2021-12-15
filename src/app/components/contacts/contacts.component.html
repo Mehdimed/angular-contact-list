@@ -1,0 +1,4 @@
+<div class="container">
+    <h3>liste des contacts</h3>
+    <div *ngFor="let contact of contacts" class="contact" (click)="showContact(contact)">{{ contact.name }}</div>
+</div>

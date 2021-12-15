@@ -1,0 +1,38 @@
+<form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="form-control">
+        <label for="name">Nom : </label>
+        <input autocomplete="niqueTaMereSaleAutocompleteDeMort" type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div class="form-error" *ngIf="form['name'].touched && form['name'].invalid">
+        <div *ngIf="form['name'].errors && form['name'].errors['required']">
+            Veuillez entrer un nom
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label for="pseudo">Pseudo : </label>
+        <input type="text" name="pseudo" id="pseudo" formControlName="pseudo">
+    </div>
+    <div class="form-error" *ngIf="form['pseudo'].touched && form['pseudo'].invalid">
+        <div *ngIf="form['pseudo'].errors && form['pseudo'].errors['required']">
+            Veuillez entrer un pseudo
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label for="email">Email : </label>
+        <input type="text" name="email" id="email" formControlName="email">
+    </div>
+    <div class="form-error" *ngIf="form['email'].touched && form['email'].invalid">
+        <div *ngIf="form['email'].errors && form['email'].errors['required']">
+            Veuillez entrer un email
+        </div>
+        <div *ngIf="form['email'].errors && form['email'].errors['email']">
+            l'email ne respecte pas un format correct
+        </div>
+    </div>
+
+    <div class="form-submit">
+        <button class="add-button" type="submit" [disabled]="!addContactForm.valid">Ajouter un contact</button>
+    </div>
+</form>
