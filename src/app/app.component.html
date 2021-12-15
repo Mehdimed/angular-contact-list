@@ -5,7 +5,7 @@
 <div class="container">
   <div class="left-menu">
     <app-add-contact [ngStyle]="{'width' : '80%'}" (onEventSubmit)="addContact($event)"></app-add-contact>
-    <app-contacts [contacts]="contacts" (onEventClick)="showContact($event)"></app-contacts>
+    <app-contacts [contacts]="contacts" (onEventClick)="showContact($event)" (onChangeOrder)="changeOrder($event)"></app-contacts>
   </div>
 
   <div class="content">

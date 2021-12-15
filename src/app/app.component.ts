@@ -48,6 +48,10 @@ export class AppComponent {
       contactToModify.name = value;
     }
     this.contactService.contacts = this.contacts
+  }
 
+  changeOrder(event: any){
+    this.contacts = event;
+    this.contactService.contacts = this.contacts
   }
 }
