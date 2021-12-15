@@ -15,7 +15,7 @@ export class AddContactComponent implements OnInit {
     name: new FormControl('',[Validators.required]),
     pseudo: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email])
-  },{updateOn:'blur'})
+  },{updateOn:'change'})
 
   get form(){
       return this.addContactForm.controls;
@@ -28,8 +28,12 @@ export class AddContactComponent implements OnInit {
 
   onSubmit(){
     if(this.addContactForm.valid){
-      this.onEventSubmit.emit(this.addContactForm.value)
-      this.addContactForm.reset()
+      this.onEventSubmit.emit(this.addContactForm.value);
+
+      // retire le focus sur l'input actif ( au cas ou l'utilisateur valide le formulaire en appuyant sur entrée )
+      (document.activeElement as HTMLElement).blur();
+
+      this.addContactForm.reset();
     }else{
       this.addContactForm.markAllAsTouched();
     }
