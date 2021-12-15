@@ -15,7 +15,7 @@ export class AddContactComponent implements OnInit {
     name: new FormControl('',[Validators.required]),
     pseudo: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email])
-  })
+  },{updateOn:'blur'})
 
   get form(){
       return this.addContactForm.controls;
@@ -27,8 +27,12 @@ export class AddContactComponent implements OnInit {
   }
 
   onSubmit(){
-    this.onEventSubmit.emit(this.addContactForm.value)
-    this.addContactForm.reset()
+    if(this.addContactForm.valid){
+      this.onEventSubmit.emit(this.addContactForm.value)
+      this.addContactForm.reset()
+    }else{
+      this.addContactForm.markAllAsTouched();
+    }
   }
 
 }
